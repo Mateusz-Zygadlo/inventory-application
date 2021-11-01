@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div(class="genresBar")
+    h1(class="genresBarGithub")
+    h1(class="genresBarName") Genres
+    div(class="genresBarShoppingCard")
+      span(class="material-icons") shopping_cart
+  div(class="genresCategoryCards")
+    div(class="genresCategoryGrid")
+      each genre in genre_list
+        div(class="genresCategoryCard")
+          img(src='./images/img.jpg' class="genresCategoryCardImg")
+          a(class="genresCategoryCardName" href=`/genre/${genre._id}`) #{genre.name}
