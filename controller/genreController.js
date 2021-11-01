@@ -20,14 +20,14 @@ exports.genre_detail = (req, res, next) => {
       Genre.findById(req.params.id).exec(callback)
     },
     genre_products: (callback) => {
-      Product.find({'genres': req.params.id}).exec(callback)
+      Product.find({genres: req.params.id}).exec(callback)
     },
   }, function(err, result){
     if(err){
       return next(err);
     }
     if(result.genre == null){
-      const err = new Error('Genre not found');
+      let err = new Error('Genre not found');
       err.status = 404;
       return next(err);
     }

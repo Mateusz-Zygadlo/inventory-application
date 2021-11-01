@@ -8,5 +8,5 @@ block content
       p(class="productDescription") #{product.description}
       div(class="productSellerAndCategory")
         p(class="productCategory")  #{product.genres}
-        p(class="productSeller") #{product.seller} 
+        a(class="productSeller" href=`/seller/${product.seller}`) seller 
       button(class="addProduct") Add product
