@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  div(class="productContainer")
+    img(src='../images/img.jpg' class="productImage")
+    div(class="product")
+      h1(class="productTitle") #{product.title}
+      p(class="productDescription") #{product.description}
+      div(class="productSellerAndCategory")
+        p(class="productCategory")  #{product.genres}
+        p(class="productSeller") #{product.seller} 
+      button(class="addProduct") Add product

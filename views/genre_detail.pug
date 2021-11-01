@@ -12,5 +12,5 @@ block content
       each genre_product in genre_products
         div(class="genresCategoryCard")
           img(src='../images/img.jpg' class="genresCategoryCardImg")
-          a(class="genresCategoryCardName" href=`/genre/${genre_product._id}`) #{genre_product.title}
+          a(class="genresCategoryCardName" href=`/product/${genre_product._id}`) #{genre_product.title}
           p(class="genresCategoryCardPrice") #{genre_product.price}$
