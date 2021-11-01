@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const GenreSchema = new Schema({
-  name: {
+const SellerSchema = new Schema({
+  firstName: {
+    type: 'string',
+    require: true,
+  },
+  lastName: {
     type: 'string',
     require: true,
   },
@@ -12,4 +16,4 @@ const GenreSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Genre', GenreSchema);
+module.exports = mongoose.model('Seller', SellerSchema);
