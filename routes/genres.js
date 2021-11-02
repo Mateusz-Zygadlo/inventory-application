@@ -8,5 +8,8 @@ router.get('/', genre_controller.genre_list);
 router.get('/genre/:id', genre_controller.genre_detail);
 router.get('/product/:id', product_controller.product);
 router.get('/seller/:id', seller_controller.seller);
+router.get('/card', (req, res) => {
+  res.render('shoppingCard');
+})
 
 module.exports = router;

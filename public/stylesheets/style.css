@@ -109,6 +109,74 @@ a{
   color: lightgreen;
   border: 1px solid lightgreen;
 }
+.genresCategoryGenreDescription{
+  font-size: 20px;
+  padding: 20px;
+}
+.productSellerPrice{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.genresCategorySellerDescription{
+  font-size: 20px;
+  padding: 20px;
+}
+.CardContainer{
+  margin-top: 80px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.shoppingCard{
+  width: 700px;
+  height: 50px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.shoppingCardName{
+  width: 400px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-size: 20px;
+}
+.shoppingCardAmount{
+  display: flex;
+  width: 150px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+.shoppingCardAmount button{
+  width: 25px;
+  height: 25px;
+  background-color: lightgreen;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.shoppingCardAmount button:hover{
+  background-color: white;
+  color: green;
+  border: 1px solid lightgreen;
+}
+.shoppingCardPrice{
+  width: 150px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+  font-size: 20px;
+  overflow: hidden;
+}
+.shoppingCardAmountCount{
+  font-size: 20px;
+  margin: 0 10px;
+}
 @media only screen and (max-width: 1300px){
   .genresCategoryGrid{
     width: 1000px;
@@ -127,9 +195,34 @@ a{
     grid-template-columns: repeat(2, 250px);
   }
 }
+@media only screen and (max-width: 740px){
+  .shoppingCard{
+    width: 600px;
+  }
+  .shoppingCardName{
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 640px){
+  .shoppingCard{
+    width: 500px;
+  }
+  .shoppingCardName{
+    width: 250px;
+  }
+  .shoppingCardPrice{
+    width: 100px;
+  }
+  .genresBarName{
+    font-size: 50px;
+  }
+}
 @media only screen and (max-width: 520px){
   .genresCategoryGrid{
     width: 250px;
     grid-template-columns: repeat(1, 250px);
+  }
+  .shoppingCard{
+    width: 475px;
   }
 }

@@ -3,12 +3,11 @@ extends layout
 block content
   div(class="genresBar")
     h1(class="genresBarGithub")
-    h1(class="genresBarName") Genres
+    h1(class="genresBarName") #{seller.firstName} #{seller.lastName}
     div(class="genresBarShoppingCard")
       span(class="material-icons") shopping_cart
   div(class="genresCategoryCards")
-    div #{seller.firstName} #{seller.lastName}
-    div #{seller.description}
+    div(class="genresCategorySellerDescription") #{seller.description}
     div(class="genresCategoryGrid")
       each genre in seller_products
         div(class="genresCategoryCard")
