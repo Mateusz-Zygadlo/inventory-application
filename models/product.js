@@ -5,10 +5,12 @@ const ProductSchema = new Schema({
   title: {
     type: 'string',
     require: true,
+    maxLength: 50,
   },
   description: {
     type: 'string',
     require: true,
+    maxLength: 250,
   },
   genres: {
     type: Schema.Types.ObjectId,
@@ -21,6 +23,7 @@ const ProductSchema = new Schema({
   count: {
     type: 'number',
     require: true,
+    maxLength: 50,
   },
   images: {
     type: 'string',
@@ -28,6 +31,7 @@ const ProductSchema = new Schema({
   price: {
     type: 'number',
     require: true,
+    maxLength: 100000,
   },
 })
 

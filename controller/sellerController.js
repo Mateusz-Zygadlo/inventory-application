@@ -1,6 +1,7 @@
 const Seller = require('../models/seller');
 const Product = require('../models/product');
 const async = require('async');
+const { validationResult } = require("express-validator");
 
 exports.seller = (req, res, next) => {
   async.parallel({
@@ -24,3 +25,38 @@ exports.seller = (req, res, next) => {
     res.render('seller', {seller: result.seller, seller_products: result.seller_products})
   })
 }
+
+exports.newSeller = [
+  (req, res, next) => {
+    const errors =  validationResult(req);
+
+    const seller = new Seller({
+      firstName: req.body.sellerFirstName,
+      lastName: req.body.sellerLastName,
+      description: req.body.sellerDescription,
+    })
+
+    if(!errors.isEmpty()){
+      res.render('seller_form');
+
+      return
+    }else{
+      Seller.findOne({firstName: req.body.sellerFirstName})
+        .exec((err, result) => {
+          if(err){
+            return next(err);
+          }
+          if(result){
+            res.redirect('/')
+          }else{
+            seller.save((err) => {
+              if(err){
+                return next(err);
+              }
+              res.redirect(`/seller/${seller._id}`)
+            })
+          }
+        })
+    }
+  }
+]

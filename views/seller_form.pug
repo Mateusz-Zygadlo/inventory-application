@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div(class="genresBar")
+    a(class="genresBarHome" href='/') home
+    h1(class="genresBarName") New Genre form
+    div(class="genresBarShoppingCard")
+      span(class="material-icons") shopping_cart
+  div(class="formGenreContainer")
+    form(method="POST" action="/seller/new")
+      input(class="formGenreInput" type="text" placeholder="Genre first name" name="sellerFirstName" required)
+      input(class="formGenreInput" type="text" placeholder="Genre last name" name="sellerLastName" required)
+      input(class="formGenreInput" type="text" placeholder="Genre description" name="sellerDescription" required)
+      button(class="formGenreButton" type="submit") Submit
