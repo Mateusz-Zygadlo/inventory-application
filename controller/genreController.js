@@ -32,6 +32,6 @@ exports.genre_detail = (req, res, next) => {
       return next(err);
     }
 
-    res.render('genre_detail', {genre: result.genre, genre_products: result.genre_products})
+    res.render('genre_detail', {genre: result.genre, genre_products: result.genre_products, path: req.params.id})
   })
 }

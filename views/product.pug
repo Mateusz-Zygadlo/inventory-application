@@ -7,6 +7,7 @@ block content
       h1(class="productTitle") #{product.title}
       p(class="productDescription") #{product.description}
       div(class="productSellerAndCategory")
-        p(class="productCategory")  #{product.genres}
-        a(class="productSeller" href=`/seller/${product.seller}`) seller 
+        a(class="productCategory" href=`/genre/${genre._id}`)  #{genre.name}
+        a(class="productSeller" href=`/seller/${product.seller}`) #{seller.firstName} #{seller.lastName} 
+      p(class="productSellerPrice") #{product.price}$
       button(class="addProduct") Add product

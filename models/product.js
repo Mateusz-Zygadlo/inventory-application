@@ -10,14 +10,14 @@ const ProductSchema = new Schema({
     type: 'string',
     require: true,
   },
-  genre: [{
+  genres: {
     type: Schema.Types.ObjectId,
     ref: 'Genre'
-  }],
-  seller: [{
+  },
+  seller: {
     type: Schema.Types.ObjectId,
     ref: 'Seller'
-  }],
+  },
   count: {
     type: 'number',
     require: true,
