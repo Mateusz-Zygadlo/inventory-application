@@ -13,6 +13,10 @@ const SellerSchema = new Schema({
   description: {
     type: 'string',
     require: true,
+  },
+  sellerNick: {
+    type: 'string',
+    require: true,
   }
 })
 

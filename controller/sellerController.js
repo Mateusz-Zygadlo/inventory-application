@@ -34,6 +34,7 @@ exports.newSeller = [
       firstName: req.body.sellerFirstName,
       lastName: req.body.sellerLastName,
       description: req.body.sellerDescription,
+      nick: req.body.sellerNick,
     })
 
     if(!errors.isEmpty()){

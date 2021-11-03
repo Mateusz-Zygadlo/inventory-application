@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div(class="genresBar")
+    a(class="genresBarHome" href='/') home
+    h1(class="genresBarName") New Genre form
+    div(class="genresBarShoppingCard")
+      span(class="material-icons") shopping_cart
+  div(class="formGenreContainer")
+    form(method="POST" action="/product/new")
+      input(class="formGenreInput" type="text" placeholder="product name" name="productName" required)
+      input(class="formGenreInput" type="text" placeholder="product description" name="productDescription" required)
+      input(class="formGenreInput" type="text" placeholder="Genre count" name="productCount" required)
+      input(class="formGenreInput" type="text" placeholder="Genre price" name="productPrice" required)
+      select(class="formGenreInput" name="genreName")  
+        each genre in genres
+          option(value=`${genre.name}`) #{genre.name}
+      select(class="formGenreInput" name="sellerName") 
+        each seller in sellers
+          option(value=`${seller.nick}`) #{seller.firstName} #{seller.lastName}
+      button(class="formGenreButton" type="submit") Submit
