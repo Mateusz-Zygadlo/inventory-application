@@ -91,3 +91,23 @@ exports.allToForm = (req, res, next) => {
     res.render('product_form', { genres: result.genres, sellers: result.sellers });
   })
 }
+
+exports.deleteProduct = (req, res, next) => {
+  Product.findById(req.params.id).exec((err, result) => {
+    if(err){
+      return next(err);
+    }
+
+    res.render('delete_product_page', {product: result})
+  })
+}
+
+exports.confirmProduct = (req, res, next) => {
+  Product.deleteOne({_id: req.body.deleteProduct}).exec((err, result) => {
+    if(err){
+      return next(err);
+    }else{
+      res.redirect('/');
+    }
+  })
+}

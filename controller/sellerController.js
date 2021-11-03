@@ -34,7 +34,6 @@ exports.newSeller = [
       firstName: req.body.sellerFirstName,
       lastName: req.body.sellerLastName,
       description: req.body.sellerDescription,
-      nick: req.body.sellerNick,
     })
 
     if(!errors.isEmpty()){
@@ -61,3 +60,39 @@ exports.newSeller = [
     }
   }
 ]
+
+exports.deleteSeller = (req, res, next) => {
+  async.parallel({
+    seller: (callback) => {
+      Seller.findById(req.params.id).exec(callback);
+    },
+    sellerProducts: (callback) => {
+      Product.find({seller: req.params.id}).exec(callback);
+    }
+  }, (err, result) => {
+    if(err){
+      return next(err);
+    }
+    if(result.seller == null){
+      let err = new Error('Seller not found');
+      err.status = 404;
+      return next(err);
+    }
+
+    if(!result.sellerProducts.length){
+      res.render('seller_confirm_page', {confirm: 'Are you sure', seller: result.seller})
+    }else{
+      res.render('delete_page', {genre: result.seller, products: result.sellerProducts})
+    }
+  })
+}
+
+exports.confirmDeleteSeller = (req, res, next) => {
+  Seller.deleteOne({_id: req.body.confirmButton}).exec((err, result) => {
+    if(err){
+      return next(err);
+    }else{
+      res.redirect('/');
+    }
+  })
+}

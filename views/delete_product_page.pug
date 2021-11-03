@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div(class="genresBar")
+    a(class="genresBarHome" href='/') home
+    h1(class="genresBarName") Delete product
+    div(class="genresBarShoppingCard")
+      span(class="material-icons") shopping_cart
+  div(class="genresCategoryCards")
+    div(class="genresCategoryGrid")
+      div(class="genresCategoryCard")
+        img(src='../../images/img.jpg' class="genresCategoryCardImg")
+        a(class="genresCategoryCardName" href=`/product/${product._id}`) #{product.title}
+    form(method="POST" action="/product/:id/delete")
+      button(type="submit" name="deleteProduct" value=`${product._id}`) Confirm

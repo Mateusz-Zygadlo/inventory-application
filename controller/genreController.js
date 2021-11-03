@@ -66,8 +66,6 @@ exports.newGenre = [
               res.redirect(`/genre/${genre._id}`)
             })
           }
-
-          res.render('genres_list')
         })
     }
   }
