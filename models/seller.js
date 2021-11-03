@@ -14,10 +14,6 @@ const SellerSchema = new Schema({
     type: 'string',
     require: true,
   },
-  sellerNick: {
-    type: 'string',
-    require: true,
-  }
 })
 
 module.exports = mongoose.model('Seller', SellerSchema);

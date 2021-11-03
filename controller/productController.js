@@ -40,29 +40,15 @@ exports.product = (req, res, next) => {
 
 exports.newProduct = [
   (req, res, next) => {
-    async.parallel({
-      genre: (callback) => {
-        Genre.find({name: req.body.genreName}).exec(callback);
-      },
-      seller: (callback) => {
-        Seller.find({nick: req.body.sellerName}).exec(callback);
-      }
-    }, (err, result) => {
-      if(err){
-        return next(err);
-      }
-
-      const errors =  validationResult(req);
-
-    console.log(req.body);
+    const errors =  validationResult(req);
 
     const product = new Product({
       title: req.body.productName,
       description: req.body.productDescription,
       count: req.body.productCount,
       price: req.body.productPrice,
-      genres: mongoose.Types.ObjectId(result.genre._id),
-      seller: mongoose.Types.ObjectId(result.seller._id),
+      genres: req.body.genreName,
+      seller: req.body.sellerName,
     })
 
     if(!errors.isEmpty()){
@@ -88,7 +74,6 @@ exports.newProduct = [
           }
         })
     }
-    })
   }
 ]
 

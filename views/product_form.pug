@@ -14,8 +14,8 @@ block content
       input(class="formGenreInput" type="text" placeholder="Genre price" name="productPrice" required)
       select(class="formGenreInput" name="genreName")  
         each genre in genres
-          option(value=`${genre.name}`) #{genre.name}
+          option(value=`${genre._id}`) #{genre.name}
       select(class="formGenreInput" name="sellerName") 
         each seller in sellers
-          option(value=`${seller.nick}`) #{seller.firstName} #{seller.lastName}
+          option(value=`${seller._id}`) #{seller.firstName} #{seller.lastName}
       button(class="formGenreButton" type="submit") Submit
