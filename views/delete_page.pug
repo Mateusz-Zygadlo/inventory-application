@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div(class="genresBar")
+    a(class="genresBarHome" href='/') home
+    h1(class="genresBarName") #{genre.name}
+    div(class="genresBarShoppingCard")
+      span(class="material-icons") shopping_cart
+  div(class="genresCategoryCards")
+    h1 You cannot remove genre. First remove the products belonging to it
+    div(class="genresCategoryGrid")
+      each product in products
+        div(class="genresCategoryCard")
+          img(src='../../images/img.jpg' class="genresCategoryCardImg")
+          a(class="genresCategoryCardName" href=`/product/${product._id}`) #{product.title}

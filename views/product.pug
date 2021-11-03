@@ -8,6 +8,6 @@ block content
       p(class="productDescription") #{product.description}
       div(class="productSellerAndCategory")
         a(class="productCategory" href=`/genre/${genre._id}`)  #{genre.name}
-        a(class="productSeller" href=`/seller/${product.seller}`) #{seller.firstName} #{seller.lastName} 
+        a(class="productSeller" href=`/seller/${product.seller}`) #{sellers.firstName} #{sellers.lastName} 
       p(class="productSellerPrice") [price]: #{product.price}$
       button(class="addProduct") Add product

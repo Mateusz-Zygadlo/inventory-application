@@ -5,7 +5,6 @@ const product_controller = require('../controller/productController');
 const seller_controller = require('../controller/sellerController');
 
 router.get('/', genre_controller.genre_list);
-router.get('/genre/:id', genre_controller.genre_detail);
 
 router.get('/product/new', product_controller.allToForm);
 router.post('/product/new', product_controller.newProduct);
@@ -21,9 +20,17 @@ router.get('/seller/:id', seller_controller.seller);
 router.get('/card', (req, res) => {
   res.render('shoppingCard');
 })
+
+
+
 router.get('/genres/new', (req, res) => {
   res.render('genre_form');
 })
+
+router.get('/genre/:id', genre_controller.genre_detail);
+router.get('/genre/:id/delete', genre_controller.deleteGenre);
+
+router.post('/genre/:id/delete', genre_controller.deleteConfirmGenre);
 
 router.post('/genres/new', genre_controller.newGenre);
 

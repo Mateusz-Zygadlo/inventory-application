@@ -1,0 +1,6 @@
+extends layout
+
+block content
+  div #{confirm}
+  form(method="POST" action="/genre/:id/delete")
+    button(type="submit" name="confirmButton" value=`${genre._id}`) Confirm

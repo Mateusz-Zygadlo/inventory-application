@@ -72,3 +72,39 @@ exports.newGenre = [
     }
   }
 ]
+
+exports.deleteGenre = (req, res, next) => {
+  async.parallel({
+    genre: (callback) => {
+      Genre.findById(req.params.id).exec(callback);
+    },
+    products: (callback) => {
+      Product.find({genres: req.params.id}).exec(callback);
+    },
+  }, (err, result) => {
+    if(err){
+      return next(err);
+    }
+    if(result.genre == null){
+      let error = new Error('Genre not found');
+      error.status = 404;
+
+      return next(error);
+    }
+
+    if(!result.products.length){
+      res.render('confirm_page', {confirm: 'Are you sure', genre: result.genre})
+    }else{
+      res.render('delete_page', {genre: result.genre, products: result.products})
+    }
+  })
+}
+exports.deleteConfirmGenre = (req, res, next) => {
+  Genre.deleteOne({_id: req.body.confirmButton}).exec((err, result) => {
+    if(err){
+      return next(err);
+    }else{
+      res.redirect('/');
+    }
+  });
+}

@@ -3,8 +3,6 @@ const Genre = require('../models/genre');
 const Seller = require('../models/seller');
 const async = require('async');
 const { validationResult } = require("express-validator");
-const mongoose = require('mongoose');
-const ObjectId = mongoose.Schema;
 
 exports.product = (req, res, next) => {
   async.parallel({
@@ -33,7 +31,7 @@ exports.product = (req, res, next) => {
         return next(err);
       }
 
-      res.render('product', {product: result.product, genre: resultTwo.genre, seller: resultTwo.seller});
+      res.render('product', {product: result.product, genre: resultTwo.genre, sellers: resultTwo.seller});
     })
   })
 }
