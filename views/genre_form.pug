@@ -7,7 +7,7 @@ block content
     div(class="genresBarShoppingCard")
       span(class="material-icons") shopping_cart
   div(class="formGenreContainer")
-    form(method="POST" action="/genres/new")
-      input(class="formGenreInput" type="text" placeholder="Genre name" name="genreName" required)
-      input(class="formGenreInput" type="text" placeholder="Genre description" name="genreDescription" required)
+    form(method="POST" action="")
+      input(class="formGenreInput" value=(genre === undefined ? '' : genre.name) type="text" placeholder="Genre name" name="genreName" required)
+      input(class="formGenreInput" value=(genre === undefined ? '' : genre.description) type="text" placeholder="Genre description" name="genreDescription" required)
       button(class="formGenreButton" type="submit") Submit

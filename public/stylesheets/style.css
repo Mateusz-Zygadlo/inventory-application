@@ -212,6 +212,10 @@ a{
   border: 1px solid lightgreen;
   background-color: white;
 }
+.links{
+  display: flex;
+  flex-direction: column;
+}
 @media only screen and (max-width: 1300px){
   .genresCategoryGrid{
     width: 1000px;

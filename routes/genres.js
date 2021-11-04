@@ -39,6 +39,9 @@ router.post('/genres/new', genre_controller.newGenre);
 router.get('/genre/:id', genre_controller.genre_detail);
 router.get('/genre/:id/delete', genre_controller.deleteGenre);
 
+router.get('/genre/:id/update', genre_controller.updateGenres);
+router.post('/genre/:id/update', genre_controller.newGenrePost);
+
 router.post('/genre/:id/delete', genre_controller.deleteConfirmGenre);
 
 module.exports = router;

@@ -47,7 +47,7 @@ exports.newGenre = [
     })
 
     if(!errors.isEmpty()){
-      res.render('genre_form')
+      res.render('genre_form', {genre: genre})
 
       return;
     }else{
@@ -106,3 +106,39 @@ exports.deleteConfirmGenre = (req, res, next) => {
     }
   });
 }
+
+exports.updateGenres = (req, res, next) => {
+  Genre.findById(req.params.id).exec((err, result) => {
+    if(err){
+      return next(err);
+    }
+
+    res.render('genre_form', {genre: result})
+  })
+}
+
+exports.newGenrePost = [
+  (req, res, next) => {
+    const error = validationResult(req);
+
+    const genre = new Genre({
+      _id: req.params.id,
+      name: req.body.genreName,
+      description: req.body.genreDescription,
+    })
+
+    if(!error.isEmpty()){
+      res.render('genre_form', {genre: genre})
+
+      return;
+    }else{
+      Genre.findByIdAndUpdate(req.params.id, genre, {}, (err, result) => {
+        if(err){
+          return next(err);
+        }
+
+        res.redirect(`/genre/${req.params.id}`);
+      })
+    }
+  }
+]
