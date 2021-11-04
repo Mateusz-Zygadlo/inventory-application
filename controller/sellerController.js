@@ -133,3 +133,13 @@ exports.updateSellerPost = [
     }
   }
 ]
+
+exports.allSellers = (req, res, next) => {
+  Seller.find().exec((err, result) => {
+    if(err){
+      return next(err);
+    }
+
+    res.render('allSellers', {genres: result})
+  })
+}

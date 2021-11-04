@@ -2,11 +2,9 @@ extends layout
 
 block content
   div(class="genresBar")
-    a(class="genresBarHome" href='/') home
+    a(class="genresBarHome" href='/')
     h1(class="genresBarName") Genres
     div(class="genresBarShoppingCard")
-      a(href="/card")
-        span(class="material-icons") shopping_cart
   div(class="genresCategoryCards")
     div(class="genresCategoryGrid")
       each genre in genre_list
@@ -14,6 +12,9 @@ block content
           div(class="genresCategoryCardImg")
           a(class="genresCategoryCardName" href=`/genre/${genre._id}`) #{genre.name}
     div(class="links") 
-      a(href=`/genres/new`) new genre
+      a(href=`/genre/new`) new genre
       a(href=`/seller/new`) new seller 
       a(href=`/product/new`) new product
+      a(href=`/products`) all products
+      a(href=`/sellers`) all sellers
+      a(href=`/genres`) all genres

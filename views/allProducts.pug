@@ -3,15 +3,14 @@ extends layout
 block content
   div(class="genresBar")
     a(class="genresBarHome" href='/') home
-    h1(class="genresBarName") All genres
+    h1(class="genresBarName") All products
     div(class="genresBarShoppingCard")
   div(class="genresCategoryCards")
     div(class="allGenresCard")
       each genre in genres
         div(class="genreCard")
-          h1(class="genreCardTitle") #{genre.name}
+          h1(class="genreCardTitle") #{genre.title}
           div(class="genreCardCRUD")
-            a(href=`/genre/${genre._id}`) view 
-            a(href=`/genre/${genre._id}/update`) update 
-            a(href=`/genre/${genre._id}/delete`) delete
-          
+            a(href=`/product/${genre._id}`) view 
+            a(href=`/product/${genre._id}/update`) update 
+            a(href=`/product/${genre._id}/delete`) delete

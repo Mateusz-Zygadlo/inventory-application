@@ -3,9 +3,8 @@ extends layout
 block content
   div(class="genresBar")
     a(class="genresBarHome" href='/') home
-    h1(class="genresBarName") New product form
+    h1(class="genresBarName") Product form
     div(class="genresBarShoppingCard")
-      span(class="material-icons") shopping_cart
   div(class="formGenreContainer")
     form(method="POST" action="/product/new")
       input(class="formGenreInput" type="text" value=(genre === undefined ? '' : genre.title) placeholder="product name" name="productName" required)

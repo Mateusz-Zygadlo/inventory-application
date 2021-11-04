@@ -15,7 +15,9 @@ router.get('/product/:id/delete', product_controller.deleteProduct);
 router.post('/product/:id/delete', product_controller.confirmProduct);
 
 router.get('/product/:id/update', product_controller.updateProduct);
-router.post('/product/:id/update', product_controller.updateProductPost)
+router.post('/product/:id/update', product_controller.updateProductPost);
+
+router.get('/products', product_controller.allProducts);
 
 router.get('/seller/new', (req, res) => {
   res.render('seller_form');
@@ -30,11 +32,7 @@ router.post('/seller/:id/delete', seller_controller.confirmDeleteSeller);
 router.get('/seller/:id/update', seller_controller.updateSeller);
 router.post('/seller/:id/update', seller_controller.updateSellerPost);
 
-router.get('/card', (req, res) => {
-  res.render('shoppingCard');
-})
-
-
+router.get('/sellers', seller_controller.allSellers);
 
 router.get('/genre/new', (req, res) => {
   res.render('genre_form');

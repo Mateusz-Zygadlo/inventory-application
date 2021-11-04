@@ -10,7 +10,8 @@ block content
         a(class="productCategory" href=`/genre/${genre._id}`) [genre]: #{genre.name}
         a(class="productSeller" href=`/seller/${product.seller}`) [seller]: #{sellers.firstName} #{sellers.lastName} 
       p(class="productSellerPrice") [price]: #{product.price}$
-      button(class="addProduct") Add product
+      p(class="productSellerPrice") [count]: #{product.count}
       div(class="links")
+        a(href='/') home
         a(href=`/product/${product._id}/delete`) delete product
         a(href=`/product/${product._id}/update`) update product

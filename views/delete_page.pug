@@ -3,11 +3,10 @@ extends layout
 block content
   div(class="genresBar")
     a(class="genresBarHome" href='/') home
-    h1(class="genresBarName") #{genre.name}
+    h1(class="genresBarName") delete #{genre.name}
     div(class="genresBarShoppingCard")
-      span(class="material-icons") shopping_cart
   div(class="genresCategoryCards")
-    h1 You cannot remove genre. First remove the products belonging to it
+    h1 You cannot remove genre or seller. First remove the products belonging to it
     div(class="genresCategoryGrid")
       each product in products
         div(class="genresCategoryCard")

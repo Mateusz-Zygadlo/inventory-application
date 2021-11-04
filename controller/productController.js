@@ -161,3 +161,13 @@ exports.updateProductPost = [
     })
   }
 ]
+
+exports.allProducts = (req, res, next) => {
+  Product.find().exec((err, result) => {
+    if(err){
+      return next(err);
+    }
+
+    res.render('allProducts', {genres: result})
+  })
+}
