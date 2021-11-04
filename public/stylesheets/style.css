@@ -237,6 +237,32 @@ a{
   justify-content: center;
   align-items: center;
 }
+.allGenresCard{
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.genreCard{
+  width: 500px;
+  height: auto;
+  border: 1px solid black;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.genreCardCRUD{
+  display: flex;
+  margin-right: 10px;
+}
+.genreCardCRUD a{
+  margin-left: 10px;
+}
+.genreCardTitle{
+  font-size: 25px;
+}
 @media only screen and (max-width: 1300px){
   .genresCategoryGrid{
     width: 1000px;

@@ -142,3 +142,13 @@ exports.newGenrePost = [
     }
   }
 ]
+
+exports.allGenres = (req, res, next) => {
+  Genre.find().exec((err, result) => {
+    if(err){
+      return next(err);
+    }
+
+    res.render('allGenres', {genres: result});
+  })
+}
