@@ -13,4 +13,6 @@ block content
         div(class="genresCategoryCard")
           img(src='../images/img.jpg' class="genresCategoryCardImg")
           a(class="genresCategoryCardName" href=`/product/${genre._id}`) #{genre.title}
-    a(href=`/seller/${seller._id}/delete`) delete seller
+    div(class="links")
+      a(href=`/seller/${seller._id}/delete`) delete seller
+      a(href=`/seller/${seller._id}/update`) update seller

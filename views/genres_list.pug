@@ -12,4 +12,7 @@ block content
         div(class="genresCategoryCard")
           img(src='./images/img.jpg' class="genresCategoryCardImg")
           a(class="genresCategoryCardName" href=`/genre/${genre._id}`) #{genre.name}
-    a(href=`/genres/new`) new genre
+    div(class="links") 
+      a(href=`/genres/new`) new genre
+      a(href=`/seller/new`) new seller 
+      a(href=`/product/new`) new product

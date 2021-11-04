@@ -22,9 +22,6 @@ const ProductSchema = new Schema({
     type: 'number',
     require: true,
   },
-  images: {
-    type: 'string',
-  },
   price: {
     type: 'number',
     require: true,

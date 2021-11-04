@@ -11,4 +11,6 @@ block content
         a(class="productSeller" href=`/seller/${product.seller}`) #{sellers.firstName} #{sellers.lastName} 
       p(class="productSellerPrice") [price]: #{product.price}$
       button(class="addProduct") Add product
-      a(href=`/product/${product._id}/delete`) delete product
+      div(class="links")
+        a(href=`/product/${product._id}/delete`) delete product
+        a(href=`/product/${product._id}/update`) update product

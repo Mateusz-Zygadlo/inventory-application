@@ -111,3 +111,53 @@ exports.confirmProduct = (req, res, next) => {
     }
   })
 }
+
+exports.updateProduct = (req, res, next) => {
+  Product.findById(req.params.id).exec((err, result) => {
+    if(err){
+      return next(err);
+    }
+  
+    res.render('product_form', {genre: result})
+  })
+}
+
+exports.updateProductPost = [
+  (req, res, next) => {
+    async.parallel({
+      product: (callback) => {
+        Product.findById(req.params.id).exec(callback);
+      }
+    }, (err, result) => {
+      if(err){
+        return next(err);
+      }
+
+      const error = validationResult(req);
+
+      const product = new Product({
+        _id: req.params.id,
+        title: req.body.productName,
+        description: req.body.productDescription,
+        seller: result.product.seller,
+        genres: result.product.genres,
+        count: req.body.productCount,
+        price: req.body.productPrice,
+      })
+
+      if(!error.isEmpty()){
+        res.render('product_form', {genre: product})
+
+        return;
+      }else{
+        Product.findByIdAndUpdate(req.params.id, product, {}, (err, result) => {
+          if(err){
+            return next(err);
+          }
+
+          res.redirect(`/product/${req.params.id}`);
+        })
+      }
+    })
+  }
+]
