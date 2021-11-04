@@ -11,5 +11,5 @@ block content
     div(class="genresCategoryGrid")
       each product in products
         div(class="genresCategoryCard")
-          img(src='../../images/img.jpg' class="genresCategoryCardImg")
+          div(class="genresCategoryCardImg")
           a(class="genresCategoryCardName" href=`/product/${product._id}`) #{product.title}

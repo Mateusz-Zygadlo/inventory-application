@@ -2,13 +2,13 @@ extends layout
 
 block content
   div(class="productContainer")
-    img(src='../images/img.jpg' class="productImage")
+    div(class="productImage")
     div(class="product")
       h1(class="productTitle") #{product.title}
       p(class="productDescription") #{product.description}
       div(class="productSellerAndCategory")
-        a(class="productCategory" href=`/genre/${genre._id}`)  #{genre.name}
-        a(class="productSeller" href=`/seller/${product.seller}`) #{sellers.firstName} #{sellers.lastName} 
+        a(class="productCategory" href=`/genre/${genre._id}`) [genre]: #{genre.name}
+        a(class="productSeller" href=`/seller/${product.seller}`) [seller]: #{sellers.firstName} #{sellers.lastName} 
       p(class="productSellerPrice") [price]: #{product.price}$
       button(class="addProduct") Add product
       div(class="links")

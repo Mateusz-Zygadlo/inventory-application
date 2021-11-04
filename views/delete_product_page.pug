@@ -9,7 +9,7 @@ block content
   div(class="genresCategoryCards")
     div(class="genresCategoryGrid")
       div(class="genresCategoryCard")
-        img(src='../../images/img.jpg' class="genresCategoryCardImg")
+        div(class="genresCategoryCardImg")
         a(class="genresCategoryCardName" href=`/product/${product._id}`) #{product.title}
     form(method="POST" action="/product/:id/delete")
-      button(type="submit" name="deleteProduct" value=`${product._id}`) Confirm
+      button(type="submit" name="deleteProduct" value=`${product._id}` class="deleteButton") Confirm

@@ -5,13 +5,14 @@ block content
     a(class="genresBarHome" href='/') home
     h1(class="genresBarName") #{genre.name}
     div(class="genresBarShoppingCard")
-      span(class="material-icons") shopping_cart
+      a(href="/card")
+        span(class="material-icons") shopping_cart
   div(class="genresCategoryCards")
     p(class="genresCategoryGenreDescription") #{genre.description}
     div(class="genresCategoryGrid")
       each genre_product in genre_products
         div(class="genresCategoryCard")
-          img(src='../images/img.jpg' class="genresCategoryCardImg")
+          div(class="genresCategoryCardImg")
           a(class="genresCategoryCardName" href=`/product/${genre_product._id}`) #{genre_product.title}
           p(class="genresCategoryCardPrice") #{genre_product.price}$
     div(class="links")   

@@ -11,7 +11,7 @@ block content
     div(class="genresCategoryGrid")
       each genre in seller_products
         div(class="genresCategoryCard")
-          img(src='../images/img.jpg' class="genresCategoryCardImg")
+          div(class="genresCategoryCardImg")
           a(class="genresCategoryCardName" href=`/product/${genre._id}`) #{genre.title}
     div(class="links")
       a(href=`/seller/${seller._id}/delete`) delete seller

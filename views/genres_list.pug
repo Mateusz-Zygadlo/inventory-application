@@ -5,12 +5,13 @@ block content
     a(class="genresBarHome" href='/') home
     h1(class="genresBarName") Genres
     div(class="genresBarShoppingCard")
-      span(class="material-icons") shopping_cart
+      a(href="/card")
+        span(class="material-icons") shopping_cart
   div(class="genresCategoryCards")
     div(class="genresCategoryGrid")
       each genre in genre_list
         div(class="genresCategoryCard")
-          img(src='./images/img.jpg' class="genresCategoryCardImg")
+          div(class="genresCategoryCardImg")
           a(class="genresCategoryCardName" href=`/genre/${genre._id}`) #{genre.name}
     div(class="links") 
       a(href=`/genres/new`) new genre

@@ -13,16 +13,22 @@ a{
 .genresBar{
   width: 100%;
   height: 75px;
-  background-color: yellow;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
+  border-bottom: 1px solid black;
+  background-color: white;
 }
 .genresBarName{
-  font-size: 60px;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-break: break-word;
+  text-align: center;
 }
 .genresBarShoppingCard{
   width: 80px;
@@ -52,6 +58,7 @@ a{
 .genresCategoryCardImg{
   width: 100%;
   height: 250px;
+  border: 1px solid black;
 }
 .genresCategoryCardName{
   width: 100%;
@@ -71,6 +78,7 @@ a{
 .productImage{
   width: 100%;
   height: 700px;
+  border: 1px solid black;
 }
 .product{
   padding: 20px;
@@ -93,7 +101,7 @@ a{
   justify-content: space-around;
   margin: 10px 0 20px 0;
 }
-.addProduct{
+.addProduct, .deleteButton{
   width: 250px;
   height: 40px;
   display: flex;
@@ -101,14 +109,14 @@ a{
   justify-content: center;
   margin: 0 auto;
   cursor: pointer;
-  background-color: lightgreen;
+  background-color: white;
   color: black;
   border: 1px solid black;
 }
-.addProduct:hover{
-  background-color: white;
-  color: lightgreen;
-  border: 1px solid lightgreen;
+.addProduct:hover, .deleteButton:hover{
+  background-color: black;
+  color: white;
+  border: 1px solid white;
 }
 .genresCategoryGenreDescription{
   font-size: 20px;
@@ -203,32 +211,52 @@ a{
   left: 80%;
   padding: 6px 10px;
   font-size: 15px;
-  background-color: lightgreen;
+  background-color: white;
   border: 1px solid black;
+  color: black;
   cursor: pointer;
 }
 .formGenreButton:hover{
-  color: green;
-  border: 1px solid lightgreen;
-  background-color: white;
+  color: white;
+  border: 1px solid white;
+  background-color: black;
 }
 .links{
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 .formGenreInputDisplay{
   display: none;
+}
+.centerConfirm{
+  font-size: 25px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media only screen and (max-width: 1300px){
   .genresCategoryGrid{
     width: 1000px;
     grid-template-columns: repeat(4, 250px);
   }
+  .productSellerAndCategory{
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media only screen and (max-width: 1100px){
   .genresCategoryGrid{
     width: 750px;
     grid-template-columns: repeat(3, 250px);
+  }
+  .productContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow: inherit;
   }
 }
 @media only screen and (max-width: 800px){
@@ -256,7 +284,13 @@ a{
     width: 100px;
   }
   .genresBarName{
-    font-size: 50px;
+    font-size: 30px;
+  }
+  .productTitle{
+    font-size: 40px;
+  }
+  .productDescription{
+    font-size: 22px;
   }
 }
 @media only screen and (max-width: 520px){

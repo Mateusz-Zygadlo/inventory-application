@@ -1,6 +1,6 @@
 extends layout
 
 block content
-  div #{confirm}
+  div(class="centerConfirm") #{confirm}
   form(method="POST" action="/genre/:id/delete")
-    button(type="submit" name="confirmButton" value=`${genre._id}`) Confirm
+    button(type="submit" name="confirmButton" value=`${genre._id}` class="deleteButton") Confirm
